@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="" />
   <title>TvFlix</title>
 
   <!-- Primary meta tags -->
@@ -17,8 +18,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/modal.css">
+  <link rel="stylesheet" href="./assets/css/SignInPage.css">
+  <!--=============== REMIXICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <script src="./assets/js/global.js" defer></script>
   <script src="./assets/js/index.js" type="module"></script>
+  <script src="./assets/js/modal.js" defer></script>
 </head>
 
 <body>
@@ -27,36 +33,94 @@
     <a href="./index.html" class="logo">
       <img src="./assets/images/logo.svg" width="140" height="32" alt="Tvflix home" />
     </a>
-
     <div class="search-box" search-box>
-
       <div class="search-wrapper" search-wrapper>
-        <input type="text" name="search"  placeholder="search any movies...." class="search-field"
+        <input type="text" name="search" placeholder="search any movies...." class="search-field"
           aria-label="search movies" autocomplete="off" search-field />
-        <img src="./assets//images/search.png" width="24" height="24" alt="search" class="leading-icon" />
+        <img src="./assets/images/search.png" width="24" height="24" alt="search" class="leading-icon" />
       </div>
 
       <button class="search-btn" search-toggler>
         <img src="./assets/images/close.png" width="24" height="24" alt="close search-box" />
       </button>
-
     </div>
-
     <button class="search-btn" search-toggler menu-close>
       <img src="./assets/images/search.png" width="24" height="24" alt="open search box" />
     </button>
-
+    <!-- 
+      MODAL
+     -->
+    <div class="section full-height">
+      <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" />
+      <label for="modal-btn"><img src="./assets/images/user.png" alt="" class="search-btn SignIn"></label>
+      <div class="modal">
+        <div class="modal-wrap">
+          <!-- 
+            LOGIN PAGE  HERE
+          -->
+          <div class="login">
+   
+            <form action="" class="login__form">
+               <h1 class="login__title">Login</h1>
+   
+               <div class="login__content">
+                  <div class="login__box">
+                     <i class="ri-user-3-line login__icon"></i>
+   
+                     <div class="login__box-input">
+                        <input type="email" required class="login__input" placeholder=" ">
+                        <label for="" class="login__label">Email</label>
+                     </div>
+                  </div>
+   
+                  <div class="login__box">
+                     <i class="ri-lock-2-line login__icon"></i>
+   
+                     <div class="login__box-input">
+                        <input type="password" required class="login__input" id="login-pass" placeholder=" ">
+                        <label for="" class="login__label">Password</label>
+                        <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                     </div>
+                  </div>
+               </div>
+   
+               <div class="login__check">
+                  <div class="login__check-group">
+                     <input type="checkbox" class="login__check-input">
+                     <label for="" class="login__check-label">Remember me</label>
+                  </div>
+   
+                  <a href="#" class="login__forgot">Forgot Password?</a>
+               </div>
+   
+               <button type="submit" class="login__button">Login</button>
+   
+               <p class="login__register">
+                  Don't have an account? <a href="#">Register</a>
+               </p>
+            </form>
+         </div>
+           <!-- 
+            LOGIN PAGE  HERE
+           -->
+        </div>
+      </div>
+    </div>
+    <!-- 
+      MODAL END HERE
+    -->
     <button class="menu-btn" menu-btn menu-toggler>
       <img src="./assets/images/menu.png" width="24" height="24" alt="open menu" class="menu" />
       <img src="./assets/images/menu-close.png" class="close" width="24" height="24" alt="close menu" />
     </button>
 
   </header>
-  <main>  
-  <!-- SideBar  -->
-   <nav class="sidebar" sidebar> </nav>
 
-  <div class="overlay" overlay menu-toggler></div>
+  <main>
+    <!-- SideBar  -->
+    <nav class="sidebar" sidebar> </nav>
+
+    <div class="overlay" overlay menu-toggler></div>
 
     <article class="container" page-content> </article>
   </main>
