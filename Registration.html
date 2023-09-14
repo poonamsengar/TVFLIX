@@ -35,6 +35,20 @@
             <i class="ri-user-3-line login__icon"></i>
             <div class="login__box-input">
               <input
+                type="name"
+                required
+                class="login__input"
+                id="nameInput"
+                placeholder=""
+                autocomplete="off"
+              />
+              <label for="" class="login__label">name</label>
+            </div>
+          </div>
+          <div class="login__box">
+            <i class="ri-user-3-line login__icon"></i>
+            <div class="login__box-input">
+              <input
                 type="email"
                 required
                 class="login__input"
@@ -84,20 +98,22 @@
   </body>
   <script>
     function Register() {
-    
-        const emailInput = document.getElementById("emailInput").value;
-        const passInput = document.getElementById("login-pass").value;
+        const username = document.getElementById("nameInput").value
+        const email = document.getElementById("emailInput").value;
+        const pass = document.getElementById("login-pass").value;
 
-
-        if (emailInput && passInput) {
-          window.location.href = "index.html";
-        } else {
-          alert("Please fill all the fields");
-        }
-
-        const email = localStorage.setItem("email", emailInput);
-        const pass1 = localStorage.setItem("pass", passInput);
-      
+        var user = {
+          username: username,
+          email:email,
+          password:pass,
+        };
+     
+          var fleg = localStorage.setItem(username, JSON.stringify(user))
+          if(fleg)
+          localStorage.setItem("loggedin", true);
+          window.location.href='./Login.html'
+              
     }
   </script>
 </html>
+

@@ -1,126 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Page</title>
-    <link
-      rel="shortcut icon"
-      href="./favicon.svg"
-      class="ref"
-      type="image/svg+xml"
-    />
-    <link rel="stylesheet" href="./assets/css/SignInPage.css" />
-    
-  </head>
-  <style>
-    .bg {
-      position: absolute;
-      background-image: url(./assets/images/BCSignIn.png);
-      background-size: cover;
-      background-position: center;
-      filter: blur(14px);
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
-  <body>
-    <!-- 
-      MODAL
-     -->
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 
-    <div class="bg"></div>
-    <div class="modal">
-      <div class="modal-wrap">
-        <!-- 
-             LOGIN PAGE  START HERE
-           -->
-        <div class="login">
-          <form action="" class="login__form">
-            <h1 class="login__title">Login</h1>
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
 
-            <div class="login__content">
-              <div class="login__box">
-                <i class="ri-user-3-line login__icon"></i>
+button:hover {
+  opacity: 0.8;
+}
 
-                <div class="login__box-input">
-                  <input
-                    type="text"
-                    required
-                    class="login__input"
-                    id="emailInput"
-                    placeholder=" "
-                    autocomplete="off"
-                  />
-                  <label for="" class="login__label">Name..</label>
-                </div>
-              </div>
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
 
-              <div class="login__box">
-                <i class="ri-lock-2-line login__icon"></i>
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
 
-                <div class="login__box-input">
-                  <input
-                    type="password"
-                    required
-                    class="login__input"
-                    id="login-pass"
-                    placeholder=" "
-                  />
-                  <label for="" class="login__label">Password</label>
-                  <i class="ri-eye-off-line login__eye" id="login-eye"></i>
-                </div>
-              </div>
-            </div>
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
 
-            <div class="login__check">
-              <div class="login__check-group">
-                <input type="checkbox" class="login__check-input" />
-                <label for="" class="login__check-label">Remember me</label>
-              </div>
+.container {
+  padding: 16px;
+}
 
-              <a href="#" class="login__forgot">Forgot Password?</a>
-            </div>
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
 
-            <button
-              type="submit"
-              class="login__button"
-              id="LoginPage"
-              onclick="Login()"
-            >
-              Login
-            </button>
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
 
-            <p class="login__register">
-              Don't have an account? <a href="./Registration.html">Register</a>
-            </p>
-          </form>
-        </div>
-        <!-- 
-             LOGIN PAGE  End
-            -->
-      </div>
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Modal Login Form</h2>
+
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
-    <!-- 
-        MODAL END HERE
-      -->
-  </body>
-  <script>
-    function Login() {
-      const emailInput = document.getElementById("emailInput").value;
-      const passInput = document.getElementById("login-pass").value;
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
 
-      const email1 = localStorage.getItem("email");
-      const pass1 = localStorage.getItem("pass");
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
 
-      if (emailInput == email1 && passInput == pass1) {
-        window.location.href = "detail.html";
-      } else {
-        alert("user name and password invalid");
-      }
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
-  </script>
+}
+</script>
+
+</body>
 </html>
