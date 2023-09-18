@@ -18,6 +18,7 @@ fetchDataFromServer( `https://api.themoviedb.org/3/genre/movie/list?api_key=${ap
 
     genreLink();
     }
+
 );
 
 
@@ -66,23 +67,17 @@ const genreLink = function () {
 };
 
 const toggleSidebar = function (sidebar) {
-
     /**
      * Toggle sidebar in mobile screen
      */
-
     const sidebarBtn = document.querySelector("[menu-btn]");
     const sidebarTogglers = document.querySelectorAll("[menu-toggler]");
     const sidebarClose = document.querySelectorAll("[menu-close]");
     const overlay = document.querySelector("[overlay]");
-
     addEventOnElements(sidebarTogglers, "click", function() {
-
     sidebar.classList.toggle("active");
     sidebarBtn.classList.toggle("active");
     overlay.classList.toggle("active");
-    
-    
     });
 
     addEventOnElements(sidebarClose, "click", function() {
@@ -90,5 +85,8 @@ const toggleSidebar = function (sidebar) {
         sidebarBtn.classList.remove("active");
         overlay.classList.remove("active");
     });
-};
+  };
+}
+function LogOut(){
+    alert("active")
 }
