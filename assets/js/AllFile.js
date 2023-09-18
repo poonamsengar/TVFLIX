@@ -3,6 +3,7 @@ const show = () =>{
     if(LoggedIn){
         // alert("true")
         console.log("true")
+        Toastyfy()
     }
     else{
         window.location.href = "/"
